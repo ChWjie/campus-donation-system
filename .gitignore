@@ -1,0 +1,30 @@
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Frontend
+campus-donation-frontend/node_modules/
+campus-donation-frontend/dist/
+campus-donation-frontend/npm-debug.log*
+campus-donation-frontend/yarn-debug.log*
+campus-donation-frontend/yarn-error.log*
+campus-donation-frontend/.env.local
+campus-donation-frontend/.env.*.local
+campus-donation-frontend/auto-imports.d.ts
+campus-donation-frontend/components.d.ts
+
+# Backend
+campus-donation-backend/target/
+campus-donation-backend/*.log
+campus-donation-backend/.mvn/
+campus-donation-backend/mvnw
+campus-donation-backend/mvnw.cmd
+campus-donation-backend/uploads/
+campus-donation-backend/.env
+
+# OS
+Thumbs.db
+db.sqlite3
