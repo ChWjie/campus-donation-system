@@ -1,6 +1,5 @@
 package com.campus.donation.module.donation.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -51,7 +50,6 @@ public class AppointmentDTO {
      */
     @NotNull(message = "预约时间不能为空")
     @Future(message = "预约时间必须是未来时间")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime appointTime;
 
     // Getters and Setters

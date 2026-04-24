@@ -1,0 +1,36 @@
+services:
+  - type: pserv
+    name: campus-donation-mysql
+    runtime: docker
+    dockerContext: .
+    dockerfilePath: ./deploy/mysql/Dockerfile
+    envVars:
+      - key: MYSQL_ROOT_PASSWORD
+        generateValue: true
+      - key: MYSQL_DATABASE
+        value: campus_donation
+      - key: MYSQL_ROOT_HOST
+        value: "%"
+    disk:
+      name: mysql-data
+      mountPath: /var/lib/mysql
+      sizeGB: 10
+
+  - type: web
+    name: campus-donation-backend
+    runtime: docker
+    dockerContext: ./campus-donation-backend
+    dockerfilePath: ./campus-donation-backend/Dockerfile
+    healthCheckPath: /api/public/health
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:mysql://campus-donation-mysql:3306/campus_donation?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+      - key: SPRING_DATASOURCE_USERNAME
+        value: root
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromService:
+          type: pserv
+          name: campus-donation-mysql
+          envVarKey: MYSQL_ROOT_PASSWORD
+      - key: JWT_SECRET
+        generateValue: true

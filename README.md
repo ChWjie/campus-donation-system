@@ -132,7 +132,7 @@ npm run dev
 
 | 角色 | 用户名 | 密码 | 说明 |
 |------|--------|------|------|
-| 管理员 | admin | admin123 | 系统预置管理员账号 |
+| 管理员 | admin | 123456 | 系统预置管理员账号 |
 
 其他角色请通过注册页面创建。
 
@@ -161,6 +161,8 @@ npm run dev
 4. 在 `router/index.ts` 中配置路由和权限
 
 ## 部署说明
+
+> Render + Vercel 的完整部署步骤见：`docs/DEPLOY_RENDER_VERCEL.md`
 
 ### 后端部署
 

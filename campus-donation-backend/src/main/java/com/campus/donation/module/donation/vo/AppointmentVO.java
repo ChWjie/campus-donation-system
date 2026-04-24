@@ -1,6 +1,5 @@
 package com.campus.donation.module.donation.vo;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDateTime;
 
 /**
@@ -17,13 +16,11 @@ public class AppointmentVO {
     private String itemDesc;
     private Long stationId;
     private String stationName;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime appointTime;
     private Integer status;
     private String statusDesc;
     private String donorName;
     private String volunteerName;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
 
     // Getters and Setters

@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
   servlet:
     context-path: /api
 
@@ -8,9 +8,9 @@ spring:
     name: campus-donation-backend
 
   datasource:
-    url: jdbc:mysql://localhost:3306/campus_donation?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
-    username: root
-    password:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/campus_donation?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 20
@@ -21,10 +21,10 @@ spring:
 
   data:
     redis:
-      host: localhost
-      port: 6379
-      database: 0
-      timeout: 5000ms
+      host: ${SPRING_DATA_REDIS_HOST:localhost}
+      port: ${SPRING_DATA_REDIS_PORT:6379}
+      database: ${SPRING_DATA_REDIS_DATABASE:0}
+      timeout: ${SPRING_DATA_REDIS_TIMEOUT:5000ms}
       lettuce:
         pool:
           max-active: 8
@@ -51,7 +51,7 @@ mybatis-plus:
 
 # JWT Configuration
 jwt:
-  secret: campus-donation-system-secret-key-2026-must-be-at-least-256-bits-long-for-hs256
+  secret: ${JWT_SECRET:campus-donation-system-secret-key-2026-must-be-at-least-256-bits-long-for-hs256}
   expiration: 86400000   # 24 hours in milliseconds
 
 # File Upload Path
